@@ -66,10 +66,10 @@ if __name__=="__main__":
 	# read lines
 	file = "%s"%(output_fct)
 	cmd_absolute = "cat %s"%(file) + " | awk '{if ($6>" + "%d"%time_limit_start + " && $6+$7<" + "%d"%(time_limit_end) + ") {print $7/1000, $5} }' | sort -n -k 2"
-	print(cmd_absolute)
+	print(cmd_absolute) #"%d"%str 字符串格式化写法，要求第六列大于开始时间，第六列加第七列小于结束时间，打印第七列和第五列；然后sort排序：按照数字给第二列排序
 	output_absolute = subprocess.check_output(cmd_absolute, shell=True)
 	cmd_slowdown = "cat %s"%(file) + " | awk '{if ($6>" + "%d"%time_limit_start + " && $6+$7<" + "%d"%(time_limit_end) + ") {print $7/$8<1?1:$7/$8, $5} }' | sort -n -k 2"
-	print(cmd_slowdown)
+	print(cmd_slowdown) #实际FCT/理想FCT，对于小于1的强制为1，依旧是按照第五列的值的排序，衡量对大小流的公平性
 	output_slowdown = subprocess.check_output(cmd_slowdown, shell=True)
 
 

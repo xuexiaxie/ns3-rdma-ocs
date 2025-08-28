@@ -35,6 +35,8 @@ class SwitchNode : public Node {
     static uint32_t EcmpHash(const uint8_t *key, size_t len, uint32_t seed);
     void CheckAndSendPfc(uint32_t inDev, uint32_t qIndex);
     void CheckAndSendResume(uint32_t inDev, uint32_t qIndex);
+    //add by xia:
+    std::map<uint32_t, uint32_t> m_interfaceToDegree; // 接口索引到邻居节点的度
 
     /* Sending packet to Egress port */
     void DoSwitchSend(Ptr<Packet> p, CustomHeader &ch, uint32_t outDev, uint32_t qIndex);
@@ -71,6 +73,9 @@ class SwitchNode : public Node {
     bool SwitchReceiveFromDevice(Ptr<NetDevice> device, Ptr<Packet> packet, CustomHeader &ch);
     void SwitchNotifyDequeue(uint32_t ifIndex, uint32_t qIndex, Ptr<Packet> p);
     uint64_t GetTxBytesOutDev(uint32_t outdev);
+    //add by xia:
+    void SetInterfaceDegree(uint32_t interfaceIndex, uint32_t degree);
+    uint32_t DoLbAggrDegree(Ptr<const Packet> p, const CustomHeader &ch, const std::vector<int> &nexthops);
 };
 
 } /* namespace ns3 */

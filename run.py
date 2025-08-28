@@ -90,6 +90,7 @@ KMIN_MAP {kmin_map}
 PMAX_MAP {pmax_map}
 LOAD {load}
 RANDOM_SEED 1
+USE_OCS_CORE 1
 """
 
 

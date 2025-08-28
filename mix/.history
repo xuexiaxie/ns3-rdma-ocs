@@ -1,1 +1,83 @@
-date,id,ccmode,lbmode,cwh_tx_expiry_time,cwh_extra_reply_deadline,cwh_path_pause_time,cwh_extra_voq_flush_time,cwh_default_voq_waiting_time,pfc,irn,has_win,var_win,topo,bw,cdf,load,time
+07/25/25,121325483,1,3,1000,4,16,64,400,1,0,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,50,0.1
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/121325483/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/121325483/config.log 2>&1
+./waf --run 'scratch/network-load-balance' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/121325483/config.txt'
+
+07/25/25,876571124,1,9,300,4,16,16,200,1,0,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,50,0.1
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/876571124/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/876571124/config.log 2>&1
+./waf --run 'scratch/network-load-balance' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/876571124/config.txt'
+
+07/25/25,589419315,1,0,1000,4,16,64,400,0,1,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,50,0.1
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/589419315/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/589419315/config.log 2>&1
+./waf --run 'scratch/network-load-balance' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/589419315/config.txt'
+
+07/25/25,879577595,1,6,1000,4,16,64,400,0,1,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,50,0.1
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/879577595/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/879577595/config.log 2>&1
+./waf --run 'scratch/network-load-balance' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/879577595/config.txt'
+
+07/25/25,800299421,1,3,1000,4,16,64,400,0,1,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,50,0.1
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/800299421/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/800299421/config.log 2>&1
+./waf --run 'scratch/network-load-balance' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/800299421/config.txt'
+
+07/25/25,158333645,1,9,300,4,16,16,200,0,1,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,50,0.1
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/158333645/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/158333645/config.log 2>&1
+./waf --run 'scratch/network-load-balance' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/158333645/config.txt'
+
+08/05/25,374018649,1,0,1,0,0,ocs_fat_k4_100G_UNIFORM,100,AliStorage2019,50,0.2
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/374018649/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/374018649/config.log 2>&1
+
+08/05/25,462216339,1,0,1,0,0,ocs_fat_k4_100G_UNIFORM,100,AliStorage2019,50,0.2
+./waf --run 'scratch/my_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/462216339/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/462216339/config.log 2>&1
+
+08/05/25,812489476,1,0,1000,4,16,64,400,1,0,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,50,0.2
+./waf --run 'scratch/network-load-balance /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/812489476/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/812489476/config.log 2>&1
+./waf --run 'scratch/network-load-balance' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/812489476/config.txt'
+
+08/05/25,251332585,1,0,1,0,0,ocs_fat_k4_100G_UNIFORM,100,AliStorage2019,50,0.2
+./waf --run 'scratch/my_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/251332585/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/251332585/config.log 2>&1
+
+08/05/25,484801020,1,0,1,0,0,ocs_fat_k4_100G_UNIFORM,100,AliStorage2019,50,0.2
+./waf --run 'scratch/my_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/484801020/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/484801020/config.log 2>&1
+
+08/05/25,747396633,1,0,1,0,0,ocs_fat_k4_100G_UNIFORM,100,AliStorage2019,50,0.2
+./waf --run 'scratch/my_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/747396633/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/747396633/config.log 2>&1
+
+08/24/25,681864423,1,0,1,0,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,40,0.1
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/681864423/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/681864423/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/681864423/config.txt'
+
+08/24/25,976739677,1,0,1,0,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,40,0.1
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/976739677/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/976739677/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/976739677/config.txt'
+
+08/24/25,958372154,1,0,1,0,0,0,leaf_spine_128_100G_OS2,100,AliStorage2019,40,0.1
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/958372154/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/958372154/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/958372154/config.txt'
+
+08/25/25,387523955,1,0,1,0,0,0,fat_k2_100G_OS2,100,Solar2022,40,0.1
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/387523955/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/387523955/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/387523955/config.txt'
+
+08/27/25,596435774,1,0,1,0,0,0,ocs_fat_k4_100G_UNIFORM_OS2,100,Solar2022,40,0.1
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/596435774/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/596435774/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/596435774/config.txt'
+
+08/27/25,546387060,1,0,1,0,0,0,ocs_fat_k2_100G_UNIFORM_OS2,100,Solar2022,40,0.1
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/546387060/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/546387060/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/546387060/config.txt'
+
+08/27/25,565323142,1,0,1,0,0,0,ocs_fat_k2_100G_UNIFORM_OS2,100,Solar2022,40,0.01
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/565323142/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/565323142/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/565323142/config.txt'
+
+08/27/25,961629309,1,10,1,0,0,0,ocs_fat_k2_100G_UNIFORM_OS2,100,Solar2022,40,0.01
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/961629309/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/961629309/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/961629309/config.txt'
+
+08/28/25,254567544,1,10,1,0,0,0,ocs_fat_k2_100G_UNIFORM_OS2,100,Solar2022,40,0.01
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/254567544/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/254567544/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/254567544/config.txt'
+
+08/28/25,709224553,1,10,1,0,0,0,ocs_fat_k2_100G_UNIFORM_OS2,100,Solar2022,40,0.01
+./waf --run 'scratch/ecmp_test /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/709224553/config.txt' > /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/709224553/config.log 2>&1
+./waf --run 'scratch/ecmp_test' --command-template='gdb --args %s /home/xxx/ONDM-SIM/ns-allinone-3.19/ns-3.19/mix/output/709224553/config.txt'
+

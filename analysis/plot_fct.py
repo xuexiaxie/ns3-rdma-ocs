@@ -129,6 +129,9 @@ def get_steps_from_raw(filename, time_start, time_end, step=5):
     aa = output_slowdown.decode("utf-8").split('\n')[:-2]
     nn = len(aa)
 
+    if nn == 0:
+        raise ValueError(f"No usable data in {filename}")  # <<< PATCHED
+
     # CDF of FCT
     res = [[i/100.] for i in range(0, 100, step)]
     for i in range(0,100,step):
@@ -230,8 +233,15 @@ def main():
                 if lb_mode == tgt_lbmode:
                     # plotting
                     fct_slowdown = output_dir + "/{id}/{id}_out_fct.txt".format(id=config_id)
-                    result = get_steps_from_raw(fct_slowdown, int(time_start), int(time_end), STEP)
-                    
+                    if not os.path.exists(fct_slowdown):  # <<< PATCHED
+                        print(f"[Warning] Missing file: {fct_slowdown}")
+                        continue
+
+                    try:  # <<< PATCHED
+                        result = get_steps_from_raw(fct_slowdown, int(time_start), int(time_end), STEP)
+                    except Exception as e:
+                        print(f"[Error] {config_id}: {e}")
+                        continue                
                     ax.plot(xvals,
                         result["avg"],
                         markersize=1.0,

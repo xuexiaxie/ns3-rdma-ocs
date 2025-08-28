@@ -85,6 +85,56 @@ uint32_t SwitchNode::DoLbFlowECMP(Ptr<const Packet> p, const CustomHeader &ch,
     return nexthops[idx];
 }
 
+//add by xia:
+void SwitchNode::SetInterfaceDegree(uint32_t interfaceIndex, uint32_t degree) {
+    m_interfaceToDegree[interfaceIndex] = degree;
+}
+
+uint32_t SwitchNode::DoLbAggrDegree(Ptr<const Packet> p, const CustomHeader &ch, const std::vector<int> &nexthops) {
+    // 找到具有最大度的邻居节点对应的接口
+    uint32_t maxDegree = 0;
+    std::vector<int> candidateInterfaces;
+    for (auto ifIndex : nexthops) {
+        auto it = m_interfaceToDegree.find(ifIndex);
+        if (it != m_interfaceToDegree.end()) {
+            uint32_t degree = it->second;
+            if (degree > maxDegree) {
+                maxDegree = degree;
+                candidateInterfaces.clear();
+                candidateInterfaces.push_back(ifIndex);
+            } else if (degree == maxDegree) {
+                candidateInterfaces.push_back(ifIndex);
+            }
+        } else {
+            // 如果没有找到度，则使用该接口作为候选（降级处理）
+            candidateInterfaces.push_back(ifIndex);
+        }
+    }
+    if (candidateInterfaces.empty()) {
+        return nexthops[0]; // 回退
+    }
+    // 使用流哈希从候选接口中选择一个
+    union {
+        uint8_t u8[4 + 4 + 2 + 2];
+        uint32_t u32[3];
+    } buf;
+    buf.u32[0] = ch.sip;
+    buf.u32[1] = ch.dip;
+    if (ch.l3Prot == 0x6)
+        buf.u32[2] = ch.tcp.sport | ((uint32_t)ch.tcp.dport << 16);
+    else if (ch.l3Prot == 0x11)
+        buf.u32[2] = ch.udp.sport | ((uint32_t)ch.udp.dport << 16);
+    else if (ch.l3Prot == 0xFC || ch.l3Prot == 0xFD)
+        buf.u32[2] = ch.ack.sport | ((uint32_t)ch.ack.dport << 16);
+    else {
+        buf.u32[2] = 0;
+    }
+    uint32_t hashVal = EcmpHash(buf.u8, 12, m_ecmpSeed);
+    uint32_t idx = hashVal % candidateInterfaces.size();
+    return candidateInterfaces[idx];
+}
+
+
 /*-----------------CONGA-----------------*/
 uint32_t SwitchNode::DoLbConga(Ptr<Packet> p, CustomHeader &ch, const std::vector<int> &nexthops) {
     return DoLbFlowECMP(p, ch, nexthops);  // flow ECMP (dummy)
@@ -272,6 +322,12 @@ int SwitchNode::GetOutDev(Ptr<Packet> p, CustomHeader &ch) {
             return DoLbLetflow(p, ch, nexthops);
         case 9:
             return DoLbConWeave(p, ch, nexthops); /** DUMMY: Do ECMP */
+        case 10: //add by xia：基于aggr度
+            if (m_isToR) {
+                return DoLbAggrDegree(p, ch, nexthops);
+            } else {
+                return DoLbFlowECMP(p, ch, nexthops);
+            }
         default:
             std::cout << "Unknown lb_mode(" << Settings::lb_mode << ")" << std::endl;
             assert(false);
